@@ -1,9 +1,48 @@
 //import { express } from "express"
 
 
-async function postLocalWeather() { 
 
-}
+
+  document.getElementById("msgBtn").addEventListener("click", () => {
+
+    console.log("SKICKA");
+    const msg = document.getElementById("msgInput").value
+    const condition = document.getElementById("condInput").value
+
+    const object = {
+        name: "msg",
+        condition: "condition"
+    }
+    console.log(msg)
+
+
+     try {
+
+        const config = {
+    
+            method: 'POST',
+            headers: {
+    
+            'Content-Type': 'application/json',
+         },
+    
+            body: JSON.stringify(object)
+    
+        }
+    
+        const response = fetch("http://localhost:3000/api/myWeather", config)
+    
+        const result = response.json()
+    
+        console.log(result)
+    
+    } catch (error) {
+    
+        console.error
+    
+    } 
+
+ }) 
 
 
 
@@ -14,17 +53,20 @@ async function getMyWeather() {
     console.log(data)
     
     for (let i = 0; i < data.length; i++) {
-        const weather = data[i]
+    const weather = data[i] 
         
         const container = document.getElementById("weatherData")
         let weatherContainer = document.createElement("div")
         weatherContainer.classList.add("weatherDiv")
-        weatherContainer.innerText = weather.name + " = " + weather.condition
+        weatherContainer.innerText = data.name + " = " + data.condition
 
         container.append(weatherContainer)
         
     }
 }
+
+
+
 
 async function getApiWeather() {
     
@@ -58,8 +100,11 @@ async function getApiWeather() {
 
 window.addEventListener("load", getApiWeather)
 
-window.addEventListener("load", getMyWeather)
+//window.addEventListener("load", getMyWeather)
 
+
+//window.addEventListener("click", getMyWeather)
+ 
 
 
 
