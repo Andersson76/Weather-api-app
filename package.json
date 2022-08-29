@@ -15,5 +15,14 @@
     "nanoid": "^4.0.0",
     "nodemon": "^2.0.19"
   },
-  "description": ""
+  "description": "Express Node",
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Andersson76/Weather-api-app.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Andersson76/Weather-api-app/issues"
+  },
+  "homepage": "https://github.com/Andersson76/Weather-api-app#readme"
 }
