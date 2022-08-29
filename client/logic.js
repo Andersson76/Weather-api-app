@@ -1,14 +1,57 @@
 
 
 
-    const getValueInput = () =>{
-    let inputValue = document.getElementById("domTextElement").value; 
-    document.getElementById("valueInput").innerHTML = inputValue; 
+
+
+  document.getElementById("msgBtn").addEventListener("click", () => {
+
+    console.log("SKICKA");
+    const msg = document.getElementById("msgInput").value
+    const condition = document.getElementById("condInput").value
+
+    const object = {
+        name: msg,
+        condition: condition
     }
+    console.log(msg)
+
+
+     try {
+
+        const config = {
+    
+            method: 'POST',
+            headers: {
+    
+            'Content-Type': 'application/json',
+         },
+    
+            body: JSON.stringify(object)
+    
+        }
+    
+        const response = fetch("http://localhost:3000/api/myWeather", config)
+    
+        const result = response.json()
+    
+        console.log(result)
+    
+    } catch (error) {
+    
+        console.error
+    
+    } 
+
+ }) 
+
 
 
 
     
+
+    for (let i = 0; i < data.length; i++) {
+    const weather = data[i] 
+
     async function getApiWeather() {
         
         const apiWeather = await fetch("http://localhost:3000/api/weather")
@@ -33,9 +76,11 @@
         
         
         
+
         
         
     }
+
 
     
     
@@ -68,6 +113,30 @@
     
     
     
+
+}
+
+
+
+window.addEventListener("load", getApiWeather)
+
+//window.addEventListener("load", getMyWeather)
+
+
+document.addEventListener("load", getMyWeather)
+ 
+
+
+
+//document.getElementById("saveBtn").addEventListener(collectWeather)
+//document.getElementById("getWeatherBtn").addEventListener("click", myWeather)
+
+
+
+
+
+
+
     //document.getElementById("getWeatherBtn").addEventListener("click", myWeather)
     
     
@@ -76,3 +145,4 @@
     
     
     
+

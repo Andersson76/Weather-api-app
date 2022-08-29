@@ -71,9 +71,9 @@ app.get("/api/myWeather", (req, res) => {
 app.post("/api/myWeather", (req, res) => {
     try {
 
-        if (!req.body || (!req.body.condition || !req.body.name)) {
+        /* if (!req.body || (!req.body.condition || !req.body.name)) {
             throw new Error("Weather allready exists...")
-        }
+        } */
 
         let newWeather = req.body
         newWeather.id = nanoid()
