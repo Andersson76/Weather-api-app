@@ -15,5 +15,5 @@ Content-Type: application/json
 
 {
     "name": "Mjörn",
-    "condition": "Partly sunny"
+    "condition": "Windy"
 }
