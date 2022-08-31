@@ -2,7 +2,6 @@ import express from 'express'
 import axios from 'axios'
 import {nanoid} from 'nanoid'
 
-//import { router as adminRouter } from ("./routers/admin.js")
 
 const app = express()
 const port = 3000
@@ -72,10 +71,6 @@ app.get("/api/myWeather", (req, res) => {
 
 app.post("/api/myWeather", (req, res) => {
     try {
-
-        /* if (!req.body || (!req.body.condition || !req.body.name)) {
-            throw new Error("Weather allready exists...")
-        } */
 
         let newWeather = req.body
         newWeather.id = nanoid()
