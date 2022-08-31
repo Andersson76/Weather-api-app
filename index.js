@@ -31,6 +31,8 @@ app.get("/api/weather", (req, res) => {
     axios.request(options).then(function (response) {
         console.log(response.data);
 
+        
+
         res.json(response.data)
     
     }).catch(function (error) {

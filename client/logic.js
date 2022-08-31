@@ -43,6 +43,7 @@ async function btnClick() {
         console.error
     
     } 
+    
 
  }
 
@@ -102,7 +103,9 @@ async function getApiWeather() {
 
 window.addEventListener("load", getApiWeather)
 
-window.addEventListener("load", getMyWeather)
+window.addEventListener("load", getMyWeather, btnClick)
+
+
 
 
 //window.addEventListener("click", getMyWeather)
