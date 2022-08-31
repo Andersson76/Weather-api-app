@@ -1,13 +1,10 @@
-//import { express } from "express"
-
-
 
 document.getElementById("msgBtn").addEventListener("click", btnClick)
+document.getElementById("printBtn").addEventListener("click", getMyWeather)
 
 async function btnClick() {
 
 
-    //console.log("SKICKA");
     const msg = document.getElementById("msgInput").value
     const condition = document.getElementById("condInput").value
 
@@ -37,6 +34,7 @@ async function btnClick() {
         const result = await response.json()
     
         console.log(result)
+        alert(result)
     
     } catch (error) {
     
@@ -55,17 +53,20 @@ async function getMyWeather() {
     const data = await myWeather.json()
     console.log(data)
     
+    
+    const container = document.getElementById("weatherData")
+    container.innerHTML = ""
+    
     for (let i = 0; i < data.length; i++) {
     const weather = data[i] 
         
-        const container = document.getElementById("weatherData")
-        let weatherContainer = document.createElement("div")
-        weatherContainer.classList.add("weatherDiv")
-        weatherContainer.innerText = weather.name + " = " + weather.condition
-
-        container.append(weatherContainer)
-        
-    }
+    let weatherContainer = document.createElement("div")
+    weatherContainer.classList.add("weatherDiv")
+    weatherContainer.innerText = weather.name + " = " + weather.condition
+    
+    container.append(weatherContainer)
+    
+}
 }
 
 
@@ -103,18 +104,8 @@ async function getApiWeather() {
 
 window.addEventListener("load", getApiWeather)
 
-window.addEventListener("load", getMyWeather, btnClick)
+window.addEventListener("load", getMyWeather)
 
-
-
-
-//window.addEventListener("click", getMyWeather)
- 
-
-
-
-//document.getElementById("saveBtn").addEventListener(collectWeather)
-//document.getElementById("getWeatherBtn").addEventListener("click", myWeather)
 
 
 
